@@ -1,0 +1,96 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar__header {
+  width: 100%;
+  background: #2a2f32;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.sidebar__avatar {
+  width: 50%;
+}
+
+.sidebar__headerRight {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar__headerRight .MuiSvgIcon-root {
+  color: grey;
+}
+
+.sidebar__search {
+  background: #131c21;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid grey;
+}
+
+.sidebar__search .sidebar__searchInput {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #323739;
+  color: grey;
+  padding: 10px;
+  border-radius: 2rem;
+}
+
+.sidebar__search .sidebar__searchInput > input {
+  color: grey;
+  border: none;
+  background: transparent;
+}
+
+.sidebar__chats {
+  background: #131c21;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar__chats .sidebar__chat {
+  display: flex;
+  width: 100%;
+  padding: 15px 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sidebar__chats .sidebar__chat:hover {
+  background: #323739;
+}
+
+.sidebar__chat .sidebar__chatAvatar {
+  flex: 0.2;
+}
+
+.sidebar__chats .sidebar__chatInfo {
+  flex: 0.7;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+  margin-left: 15px;
+}
+
+.sidebar__chats .sidebar__chatInfo h3 {
+  font-weight: normal;
+  color: lightgrey;
+}
+
+.sidebar__chats .sidebar__chatInfo p {
+  color: grey;
+}
