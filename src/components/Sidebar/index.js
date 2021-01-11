@@ -41,4 +41,4 @@ function Sidebar() {
 
 export default Sidebar;
 
-// https://user-images.githubusercontent.com/48273777/104119271-47afe480-5354-11eb-8566-f9824e4851ed.jpg
+// 

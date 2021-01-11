@@ -28,3 +28,51 @@
 .chat .chat__headerRight button {
   color: grey;
 }
+
+.chat__body {
+  flex: 1;
+  background: url("https://user-images.githubusercontent.com/48273777/104119271-47afe480-5354-11eb-8566-f9824e4851ed.jpg");
+  background-position: center;
+  background-size: 40%;
+}
+
+.chat__footer {
+  background: #1e2428;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 62px;
+  padding: 0 16px;
+}
+
+.chat__footer > button {
+  flex: 0.05;
+}
+
+.chat__footer form {
+  flex: 0.9;
+}
+
+.chat__footer > .MuiSvgIcon-root {
+  color: grey;
+  font-size: 1.9rem;
+}
+
+.chat__footer form input {
+  width: 100%;
+  background: #33383b;
+  border: none;
+  border-radius: 2rem;
+  padding: 13px;
+  border: 1px solid #33383b;
+  color: #fff;
+}
+
+.chat__footer form input::placeholder {
+  color: grey;
+}
+
+.chat__footer form button {
+  display: none;
+}
