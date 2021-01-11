@@ -14,11 +14,11 @@
 }
 
 .sidebar__headerLeft {
-  width: 60%;
+  width: 50%;
 }
 
 .sidebar__headerRight {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,5 +1,11 @@
 import { Avatar } from "@material-ui/core";
-import { ChatBubble, DonutLarge, MoreVert, Search } from "@material-ui/icons";
+import {
+  Add,
+  ChatBubble,
+  DonutLarge,
+  MoreVert,
+  Search,
+} from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import "./Sidebar.css";
 import SidebarChat from "../SidebarChat";
@@ -12,6 +18,9 @@ function Sidebar() {
           <Avatar />
         </div>
         <div className="sidebar__headerRight">
+          <IconButton>
+            <Add />
+          </IconButton>
           <IconButton>
             <DonutLarge />
           </IconButton>
@@ -41,4 +50,4 @@ function Sidebar() {
 
 export default Sidebar;
 
-// 
+//

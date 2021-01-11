@@ -7,6 +7,7 @@ import {
   Search,
 } from "@material-ui/icons";
 import "./Chat.css";
+import ChatMessage from "../ChatMessage";
 
 function Chat() {
   return (
@@ -28,7 +29,11 @@ function Chat() {
           </IconButton>
         </div>
       </header>
-      <div className="chat__body"></div>
+      <div className="chat__body">
+        <ChatMessage />
+        <ChatMessage />
+        <ChatMessage />
+      </div>
       <div className="chat__footer">
         <InsertEmoticon />
         <AttachFileOutlined />
