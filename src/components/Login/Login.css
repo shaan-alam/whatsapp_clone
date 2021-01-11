@@ -29,3 +29,28 @@
   color: #fff;
   font-size: medium;
 }
+
+.login .login__container {
+  width: 70%;
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  padding: 4rem;
+  bottom: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19),
+    0 12px 15px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login .login__container {
+  text-align: center;
+}
+
+.login .login__container h1 {
+  color: #525252;
+  font-size: 26px;
+  margin-bottom: 28px;
+  font-weight: normal;
+}

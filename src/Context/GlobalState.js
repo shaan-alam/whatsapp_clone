@@ -7,12 +7,13 @@ export const Context = createContext({});
 export default function GlobalContext({ children }) {
   const [user, setUser] = useState(null);
 
-  const loginWithGoogle = () => {
+  const loginWithGoogle = (redirect) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth
       .signInWithPopup(provider)
       .then((result) => {
         setUser(result);
+        redirect();
       })
       .catch((err) => {
         console.log(err);

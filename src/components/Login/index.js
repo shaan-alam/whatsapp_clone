@@ -1,8 +1,20 @@
+import { useContext } from "react";
+import { Context } from "../../Context/GlobalState";
+import { Button } from "@material-ui/core";
+import { withRouter } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
+  const { loginWithGoogle } = useContext(Context);
+
   return (
     <div className="login">
+      <div className="login__container">
+        <h1>To use WhatsApp on your computer:</h1>
+        <Button color="primary" onClick={loginWithGoogle}>
+          Login with Google
+        </Button>
+      </div>
       <div className="login__header">
         <div className="login__headerContainer">
           <svg

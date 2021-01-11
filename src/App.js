@@ -11,7 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 function App() {
   const { user } = useContext(Context);
 
-  return !user ? (
+  return user === null ? (
     <Login />
   ) : (
     <div className="app">
