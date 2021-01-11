@@ -1,3 +1,4 @@
+import { useEffect , useState } from 'react';
 import { Avatar } from "@material-ui/core";
 import {
   Add,
@@ -10,7 +11,18 @@ import IconButton from "@material-ui/core/IconButton";
 import "./Sidebar.css";
 import SidebarChat from "../SidebarChat";
 
+import { db } from "../../firebase/config";
+
 function Sidebar() {
+
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    db.collection('rooms').onSnapshot(snapshot => {
+      setRooms(snapshot.docs.map(doc => doc.data()))
+    })
+  }, [rooms])
+
   return (
     <div className="sidebar">
       <header className="sidebar__header">
