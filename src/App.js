@@ -1,21 +1,25 @@
+import { useContext } from "react";
 import Sidebar from "./components/Sidebar";
 import Chat from "./components/Chat";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import HomeScreen from "./components/HomeScreen";
+import { Context } from "./Context/GlobalState";
+import Login from "./components/Login";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
-  return (
+  const { user } = useContext(Context);
+
+  return !user ? (
+    <Login />
+  ) : (
     <div className="app">
       <Router>
         <Sidebar />
         <Switch>
-          <Route path="/rooms/:id">
-            <Chat />
-          </Route>
-          <Route path="/" exact>
-            <HomeScreen />
-          </Route>
+          <PrivateRoute path="/rooms/:id" component={Chat} user={user} />
+          <PrivateRoute path="/" exact component={HomeScreen} user={user} />
         </Switch>
       </Router>
     </div>
