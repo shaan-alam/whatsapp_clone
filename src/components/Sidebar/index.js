@@ -1,4 +1,4 @@
-import { useEffect , useState } from 'react';
+import { useEffect, useState } from "react";
 import { Avatar } from "@material-ui/core";
 import {
   Add,
@@ -14,14 +14,13 @@ import SidebarChat from "../SidebarChat";
 import { db } from "../../firebase/config";
 
 function Sidebar() {
-
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
-    db.collection('rooms').onSnapshot(snapshot => {
-      setRooms(snapshot.docs.map(doc => doc.data()))
-    })
-  }, [rooms])
+    db.collection("rooms").onSnapshot((snapshot) => {
+      setRooms(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    });
+  }, [rooms]);
 
   return (
     <div className="sidebar">
@@ -51,10 +50,9 @@ function Sidebar() {
         </div>
       </div>
       <div className="sidebar__chats">
-        <SidebarChat addNewChat />
-        <SidebarChat />
-        <SidebarChat />
-        <SidebarChat />
+        {rooms.map((room) => (
+          <SidebarChat room={room} />
+        ))}
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Avatar, IconButton } from "@material-ui/core";
 import {
   AttachFileOutlined,
@@ -8,8 +9,24 @@ import {
 } from "@material-ui/icons";
 import "./Chat.css";
 import ChatMessage from "../ChatMessage";
+import { useParams } from "react-router-dom";
+import { db } from "../../firebase/config";
 
 function Chat() {
+  const [messages, setMessages] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    db.collection("rooms")
+      .doc(id)
+      .collection("messages")
+      .onSnapshot((snapshot) => {
+        setMessages(
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
+      });
+  });
+
   return (
     <div className="chat">
       <header className="chat__header">

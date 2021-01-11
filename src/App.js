@@ -7,13 +7,13 @@ import HomeScreen from "./components/HomeScreen";
 function App() {
   return (
     <div className="app">
-      <Sidebar />
       <Router>
+        <Sidebar />
         <Switch>
           <Route path="/rooms/:id">
             <Chat />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <HomeScreen />
           </Route>
         </Switch>
