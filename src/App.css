@@ -12,10 +12,10 @@
 }
 
 .app .sidebar {
-  flex: 0.23;
+  flex: 30%;
   border-right: 1px solid grey;
 }
 
 .app .chat {
-  flex: 0.8;
+  flex: 70%;
 }

@@ -1,0 +1,30 @@
+.chat {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat .chat__header {
+  background: #2a2f32;
+  color: grey;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.chat .chat__headerLeft {
+  flex: 0.2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat .chat__headerLeft .chat__headerInfo h3 {
+  font-weight: normal;
+  color: #fff;
+}
+
+.chat .chat__headerRight button {
+  color: grey;
+}
