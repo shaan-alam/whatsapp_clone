@@ -1,0 +1,38 @@
+.homescreen {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #262d31;
+}
+
+.homescreen .homescreen__content {
+  text-align: center;
+}
+
+.homescreen .homescreen__content .homescreen__img {
+  border-radius: 100%;
+  padding: 0.8rem;
+  width: 250px;
+  height: 250px;
+  background: url("https://web.whatsapp.com/img/intro-connection-dark_0ee01153183b5ebd9b296399cc2104b0.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.homescreen .homescreen__content h1 {
+  margin-top: 28px;
+  color: #d7d8d9;
+  font-weight: normal;
+}
+
+.homescreen .homescreen__content p {
+  color: #a6a8aa;
+  font-size: 14px;
+  line-height: 20px;
+  width: 70%;
+  margin: 18px auto;
+}
