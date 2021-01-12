@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { auth } from "../firebase/config";
 import firebase from "firebase";
 
@@ -6,6 +6,14 @@ export const Context = createContext({});
 
 export default function GlobalContext({ children }) {
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      }
+    });
+  }, [user]);
 
   const loginWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();

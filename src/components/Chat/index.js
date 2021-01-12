@@ -9,13 +9,12 @@ import {
 } from "@material-ui/icons";
 import "./Chat.css";
 import ChatMessage from "../ChatMessage";
-import { useParams } from "react-router-dom";
 import { db } from "../../firebase/config";
 
-function Chat() {
+function Chat({ computedMatch }) {
   const [messages, setMessages] = useState([]);
-  const [room, setRoom] = useState({});
-  const { id } = useParams();
+  const [room, setRoom] = useState("");
+  const { id } = computedMatch.params;
 
   useEffect(() => {
     db.collection("rooms")
@@ -28,9 +27,12 @@ function Chat() {
       });
 
     db.collection("rooms")
-      .doc(id)      
-      .onSnapshot((snapshot) => {
-        setRoom(snapshot.docs.map((doc) => doc.data()));
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setRoom(doc.data());
+        }
       });
   }, [messages, room, id]);
 
@@ -40,7 +42,7 @@ function Chat() {
         <div className="chat__headerLeft">
           <Avatar />
           <div className="chat__headerInfo">
-            <h3>Room </h3>
+            <h3>{room.name}</h3>
             <p>Last seen at ....</p>
           </div>
         </div>
