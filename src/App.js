@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Sidebar from "./components/Sidebar";
 import Chat from "./components/Chat";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 import HomeScreen from "./components/HomeScreen";
 import { Context } from "./Context/GlobalState";

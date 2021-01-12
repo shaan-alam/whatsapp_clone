@@ -14,6 +14,7 @@ import { db } from "../../firebase/config";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
+  const [room, setRoom] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -25,7 +26,13 @@ function Chat() {
           snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         );
       });
-  });
+
+    db.collection("rooms")
+      .doc(id)      
+      .onSnapshot((snapshot) => {
+        setRoom(snapshot.docs.map((doc) => doc.data()));
+      });
+  }, [messages, room, id]);
 
   return (
     <div className="chat">
@@ -33,7 +40,7 @@ function Chat() {
         <div className="chat__headerLeft">
           <Avatar />
           <div className="chat__headerInfo">
-            <h3>Room Name</h3>
+            <h3>Room </h3>
             <p>Last seen at ....</p>
           </div>
         </div>
