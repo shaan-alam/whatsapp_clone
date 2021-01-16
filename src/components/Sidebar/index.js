@@ -3,7 +3,6 @@ import { Avatar } from "@material-ui/core";
 import {
   Add,
   ChatBubble,
-  // Jan 14
   DonutLarge,
   MoreVert,
   Search,
@@ -54,7 +53,7 @@ function Sidebar() {
       </div>
       <div className="sidebar__chats">
         {rooms.map((room) => (
-          <SidebarChat room={room} />
+          <SidebarChat room={room} key={room.id} />
         ))}
       </div>
     </div>

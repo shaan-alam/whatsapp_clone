@@ -25,7 +25,7 @@ function Chat({ computedMatch }) {
           snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         );
       });
-
+      // COMMIT 
     db.collection("rooms")
       .doc(id)
       .get()
