@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../../Context/GlobalState";
 import { Button } from "@material-ui/core";
-import { withRouter } from "react-router-dom";
 import "./Login.css";
 
 function Login() {

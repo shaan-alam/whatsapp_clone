@@ -27,11 +27,11 @@ function Chat() {
         );
       });
 
-    db.collection("rooms")
-      .doc(id)      
-      .onSnapshot((snapshot) => {
-        setRoom(snapshot.docs.map((doc) => doc.data()));
-      });
+    // db.collection("rooms")
+    //   .doc(id)      
+    //   .onSnapshot((snapshot) => {
+    //     setRoom(snapshot.docs.map((doc) => doc.data()));
+    //   });
   }, [messages, room, id]);
 
   return (
