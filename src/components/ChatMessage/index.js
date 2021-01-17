@@ -1,11 +1,20 @@
+import { useContext } from "react";
+import { Context } from "../../Context/GlobalState";
 import "./ChatMessage.css";
 
-function ChatMessage() {
+function ChatMessage({ message }) {
+  const { user } = useContext(Context);
+
   return (
-    <div className="chat__message">
-      <p className="chat__messageSender">Shaan Alam</p>
+    <div
+      className={`chat__message ${
+        message.senderId === user.user.uid ? "chat__receiver" : ""
+      }`}
+    >
+      <p className="chat__messageSender">{message.senderName}</p>
       <p className="chat__messageTxt">
-        Hello Guys!! 🔥<span>3:52 PM</span>
+        {message.message}
+        <span>3:52 PM</span>
       </p>
     </div>
   );

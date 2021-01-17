@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Avatar, IconButton } from "@material-ui/core";
 import {
   AttachFileOutlined,
@@ -9,18 +9,24 @@ import {
 } from "@material-ui/icons";
 import "./Chat.css";
 import ChatMessage from "../ChatMessage";
-import { useParams } from "react-router-dom";
 import { db } from "../../firebase/config";
+import { Context } from "../../Context/GlobalState";
+import firebase from "firebase";
+import { useParams } from "react-router-dom";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
-  const [room, setRoom] = useState({});
+  const [input, setInput] = useState("");
+  const [room, setRoom] = useState("");
+  const { user } = useContext(Context);
   const { id } = useParams();
 
   useEffect(() => {
     db.collection("rooms")
       .doc(id)
       .collection("messages")
+      .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) => {
         setMessages(
           snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
@@ -28,11 +34,24 @@ function Chat() {
       });
 
     // db.collection("rooms")
-    //   .doc(id)      
+    //   .doc(id)
     //   .onSnapshot((snapshot) => {
-    //     setRoom(snapshot.docs.map((doc) => doc.data()));
+    //     setRoom(snapshot.data().name);
     //   });
-  }, [messages, room, id]);
+  }, [id]);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    db.collection("rooms").doc(id).collection("messages").add({
+      senderId: user.user.uid,
+      senderName: user.user.displayName,
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setInput("");
+  };
 
   return (
     <div className="chat">
@@ -40,7 +59,7 @@ function Chat() {
         <div className="chat__headerLeft">
           <Avatar />
           <div className="chat__headerInfo">
-            <h3>Room </h3>
+            <h3>{room}</h3>
             <p>Last seen at ....</p>
           </div>
         </div>
@@ -54,15 +73,22 @@ function Chat() {
         </div>
       </header>
       <div className="chat__body">
-        <ChatMessage />
-        <ChatMessage />
-        <ChatMessage />
+        <ScrollToBottom className="chat__messages">
+          {messages.map((message) => (
+            <ChatMessage message={message} key={message.id} />
+          ))}
+        </ScrollToBottom>
       </div>
       <div className="chat__footer">
         <InsertEmoticon />
         <AttachFileOutlined />
-        <form action="">
-          <input type="text" placeholder="Type a message" />
+        <form onSubmit={handleFormSubmit}>
+          <input
+            type="text"
+            placeholder="Type a message"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
           <button>Send</button>
         </form>
         <Mic />
