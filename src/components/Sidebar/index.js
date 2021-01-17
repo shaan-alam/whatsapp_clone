@@ -11,17 +11,20 @@ import IconButton from "@material-ui/core/IconButton";
 import "./Sidebar.css";
 import SidebarChat from "../SidebarChat";
 import { Context } from "../../Context/GlobalState";
-
+import NewChatModal from "../NewChatModal";
 import { db } from "../../firebase/config";
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useContext(Context);
 
   useEffect(() => {
-    db.collection("rooms").onSnapshot((snapshot) => {
-      setRooms(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
+    db.collection("rooms")
+      .orderBy("timestamp", "asc")
+      .onSnapshot((snapshot) => {
+        setRooms(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      });
   }, [rooms]);
 
   return (
@@ -31,8 +34,14 @@ function Sidebar() {
           <Avatar src={user.user.photoURL} />
         </div>
         <div className="sidebar__headerRight">
-          <IconButton>
+          <IconButton onClick={() => setIsModalOpen(true)}>
             <Add />
+            {isModalOpen && (
+              <NewChatModal
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+              />
+            )}
           </IconButton>
           <IconButton>
             <DonutLarge />
