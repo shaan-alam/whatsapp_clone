@@ -60,7 +60,6 @@ function Chat() {
           <Avatar />
           <div className="chat__headerInfo">
             <h3>{room}</h3>
-            <p>Last seen at ....</p>
           </div>
         </div>
         <div className="chat__headerRight">
