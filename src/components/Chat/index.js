@@ -41,12 +41,14 @@ function Chat() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    db.collection("rooms").doc(id).collection("messages").add({
-      senderId: user.user.uid,
-      senderName: user.user.displayName,
-      message: input,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    if (input !== "") {
+      db.collection("rooms").doc(id).collection("messages").add({
+        senderId: user.user.uid,
+        senderName: user.user.displayName,
+        message: input,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+    }
 
     setInput("");
   };
