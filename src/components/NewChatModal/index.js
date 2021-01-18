@@ -24,7 +24,7 @@ function NewChatModal({ isModalOpen, setIsModalOpen }) {
     <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
       <div className="modal__container">
         <div className="modal__content">
-          <h1>New Chat</h1>
+          <h3>New Chat</h3>
           <div className="input__newChat">
             <input
               type="text"

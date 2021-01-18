@@ -40,6 +40,10 @@ function Chat() {
     //   });
   }, [id]);
 
+  useEffect(() => {
+    db.collection('rooms').doc(id).onSnapshot(snapshot => setRoom(snapshot.data().name))
+  }, [id])
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
