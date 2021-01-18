@@ -21,7 +21,7 @@
   box-shadow: 0 7px 50px rgba(0, 0, 0, 0.19);
 }
 
-.modal__container .modal__content h1 {
+.modal__container .modal__content h3 {
   color: lightgrey;
   font-weight: normal;
   margin-bottom: 28px;
