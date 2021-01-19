@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Avatar, IconButton } from "@material-ui/core";
 import {
   AttachFileOutlined,
@@ -14,7 +14,6 @@ import { Context } from "../../Context/GlobalState";
 import firebase from "firebase";
 import { useParams } from "react-router-dom";
 
-
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -22,20 +21,25 @@ function Chat() {
   const { user } = useContext(Context);
   const { id } = useParams();
 
-  useEffect(() => {
-    db.collection("rooms")
-      .doc(id)
-      .collection("messages")
-      .orderBy("timestamp", "asc")
-      .onSnapshot((snapshot) => {
-        setMessages(
-          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-        );
-      });
+  const scrollRef = useRef();
 
-    db.collection("rooms")
-      .doc(id)
-      .onSnapshot((snapshot) => setRoom(snapshot.data().name));
+  useEffect(() => {
+    
+    if (id) {
+      db.collection("rooms")
+        .doc(id)
+        .collection("messages")
+        .orderBy("timestamp", "asc")
+        .onSnapshot((snapshot) => {
+          setMessages(
+            snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+          );
+        });
+
+      db.collection("rooms")
+        .doc(id)
+        .onSnapshot((snapshot) => setRoom(snapshot.data().name));
+    }
   }, [id]);
 
   const handleFormSubmit = (e) => {
@@ -48,9 +52,10 @@ function Chat() {
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
-    }
 
-    setInput("");
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+      setInput("");
+    }
   };
 
   return (
@@ -75,6 +80,10 @@ function Chat() {
         {messages.map((message) => (
           <ChatMessage message={message} key={message.id} />
         ))}
+        <div
+          ref={scrollRef}
+          style={{ paddingTop: "6rem", float: "left", clear: "both" }}
+        ></div>
       </div>
       <div className="chat__footer">
         <InsertEmoticon />
