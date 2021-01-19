@@ -3,7 +3,7 @@ import { Avatar } from "@material-ui/core";
 import {
   Add,
   ChatBubble,
-  DonutLarge, 
+  DonutLarge,
   MoreVert,
   Search,
 } from "@material-ui/icons";
@@ -31,7 +31,7 @@ function Sidebar() {
     <div className="sidebar">
       <header className="sidebar__header">
         <div className="sidebar__headerLeft">
-          <Avatar src={user.user.photoURL} />
+          <Avatar src={user.photoURL} />
         </div>
         <div className="sidebar__headerRight">
           <IconButton onClick={() => setIsModalOpen(true)}>

@@ -17,10 +17,12 @@
 .chat .chat__headerLeft {
   flex: 0.2;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .chat .chat__headerLeft .chat__headerInfo h3 {
+  margin-left: 22px;
   font-weight: normal;
   color: #fff;
 }
@@ -33,6 +35,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding: 2rem 4rem;
   background: url("https://user-images.githubusercontent.com/48273777/104119271-47afe480-5354-11eb-8566-f9824e4851ed.jpg");
   background-position: center;
   background-size: 40%;

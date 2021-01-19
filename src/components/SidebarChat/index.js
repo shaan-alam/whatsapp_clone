@@ -13,9 +13,9 @@ function SidebarChat({ room }) {
       .collection("messages")
       .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) => {
-        setMessage(snapshot.docs[0].data().message);
+        setMessage(snapshot.docs[0]?.data().message);
       });
-  }, [message, room.id]);
+  }, [room.id]);
 
   return (
     <Link to={`/rooms/${room.id}`}>

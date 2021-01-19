@@ -8,7 +8,7 @@ function ChatMessage({ message }) {
   return (
     <div
       className={`chat__message ${
-        message.senderId === user.user.uid ? "chat__receiver" : ""
+        message.senderId === user.uid ? "chat__receiver" : ""
       }`}
     >
       <p className="chat__messageSender">{message.senderName}</p>

@@ -13,7 +13,7 @@ import { db } from "../../firebase/config";
 import { Context } from "../../Context/GlobalState";
 import firebase from "firebase";
 import { useParams } from "react-router-dom";
-import ScrollToBottom from "react-scroll-to-bottom";
+
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -43,8 +43,8 @@ function Chat() {
 
     if (input !== "") {
       db.collection("rooms").doc(id).collection("messages").add({
-        senderId: user.user.uid,
-        senderName: user.user.displayName,
+        senderId: user.uid,
+        senderName: user.displayName,
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
@@ -72,11 +72,9 @@ function Chat() {
         </div>
       </header>
       <div className="chat__body">
-        <ScrollToBottom className="chat__messages">
-          {messages.map((message) => (
-            <ChatMessage message={message} key={message.id} />
-          ))}
-        </ScrollToBottom>
+        {messages.map((message) => (
+          <ChatMessage message={message} key={message.id} />
+        ))}
       </div>
       <div className="chat__footer">
         <InsertEmoticon />
