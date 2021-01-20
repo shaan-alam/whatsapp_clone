@@ -14,7 +14,7 @@ function ChatMessage({ message }) {
       <p className="chat__messageSender">{message.senderName}</p>
       <p className="chat__messageTxt">
         {message.message}
-        {/* <span>{message.timestamp.toDate().toUTCSting()}</span> */}
+        <span>{new Date(message.timestamp?.toDate()).toUTCString()}</span>
       </p>
     </div>
   );
