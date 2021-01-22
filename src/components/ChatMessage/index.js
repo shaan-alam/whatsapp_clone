@@ -3,7 +3,7 @@ import { Context } from "../../Context/GlobalState";
 import "./ChatMessage.css";
 
 function ChatMessage({ message }) {
-  const { user } = useContext(Context);
+  const { user } = useContext(Context);   
 
   return (
     <div

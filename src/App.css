@@ -13,6 +13,7 @@
 
 .app .sidebar {
   flex: 30%;
+  position: relative;
   border-right: 1px solid grey;
 }
 
