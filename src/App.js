@@ -6,7 +6,6 @@ import "./App.css";
 import HomeScreen from "./components/HomeScreen";
 import { Context } from "./Context/GlobalState";
 import Login from "./components/Login";
-// import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const { user } = useContext(Context);
@@ -18,8 +17,8 @@ function App() {
       <Router>
         <Sidebar />
         <Switch>
-          <Route path="/rooms/:id" component={Chat} user={user} />
-          <Route path="/" exact component={HomeScreen} user={user} />
+          <Route path="/rooms/:id" component={Chat} />
+          <Route path="/" exact component={HomeScreen} />
         </Switch>
       </Router>
     </div>
