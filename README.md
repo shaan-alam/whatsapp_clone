@@ -35,4 +35,4 @@ Follow the commands below to clone this repository on your system.
 ![chat](https://user-images.githubusercontent.com/48273777/105491964-33b59c80-5cdd-11eb-85f2-47ceb403968c.png "Chat")
 
 
-#### Live Demo - [Click here](whatsapp-644bd.firebaseapp.com/)
+#### Live Demo - [Click here](https://whatsapp-644bd.firebaseapp.com/)
