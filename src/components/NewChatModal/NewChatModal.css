@@ -21,6 +21,14 @@
   box-shadow: 0 7px 50px rgba(0, 0, 0, 0.19);
 }
 
+.modal__close {
+  font-size: 1.2rem;
+  float: right;
+  color: #fff;
+  text-decoration: none;
+  clear: both;
+}
+
 .modal__container .modal__content h3 {
   color: lightgrey;
   font-weight: normal;

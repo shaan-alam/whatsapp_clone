@@ -24,6 +24,7 @@ function NewChatModal({ isModalOpen, setIsModalOpen }) {
     <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
       <div className="modal__container">
         <div className="modal__content">
+          <a href="#!" className="modal__close" onClick={(e) => setIsModalOpen(false)}>&times;</a>
           <h3>New Chat</h3>
           <div className="input__newChat">
             <input

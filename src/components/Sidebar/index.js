@@ -20,11 +20,14 @@ function Sidebar() {
   const { user } = useContext(Context);
 
   useEffect(() => {
-    db.collection("rooms")
+    const unsub = db
+      .collection("rooms")
       .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) => {
         setRooms(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       });
+
+    return () => unsub();
   }, []);
 
   return (
@@ -36,13 +39,13 @@ function Sidebar() {
         <div className="sidebar__headerRight">
           <IconButton onClick={() => setIsModalOpen(true)}>
             <Add />
-            {isModalOpen && (
-              <NewChatModal
-                isModalOpen={isModalOpen}
-                setIsModalOpen={setIsModalOpen}
-              />
-            )}
           </IconButton>
+          {isModalOpen && (
+            <NewChatModal
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
+          )}
           <IconButton>
             <DonutLarge />
           </IconButton>
