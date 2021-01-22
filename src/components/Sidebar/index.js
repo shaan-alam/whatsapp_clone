@@ -25,7 +25,7 @@ function Sidebar() {
       .onSnapshot((snapshot) => {
         setRooms(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       });
-  }, [rooms]);
+  }, []);
 
   return (
     <div className="sidebar">
