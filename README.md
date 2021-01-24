@@ -2,7 +2,10 @@
 
 This is a WhatsApp clone that I built using ReactJS and Firebase as a part of my personal project.
 
-## Installation
+## 👩‍💻 Installation
+
+<img src="https://user-images.githubusercontent.com/48273777/105491791-e5080280-5cdc-11eb-9c22-fc51937d946c.png" alt="drawing" width="200"/>
+
 
 Follow the commands below to clone this repository on your system.
 
@@ -13,19 +16,19 @@ Follow the commands below to clone this repository on your system.
 4. npm start
 ```
 
-## Tech Used
+## ⏬ Tech Used
 * ReactJS 🔥
 * Firebase
 * Material UI
 * CSS 
 
 
-## Features
-* Authentication (Google OAuth)
-* Real time chat
-* Can create new rooms for chat
+## 👇 Features
+* ⚒ Authentication (Google OAuth)
+* 🗯Real time chat
+* 🌈 Can create new rooms for chat
 
-## Screenshots
+## 📷 Screenshots
 ![homepage](https://user-images.githubusercontent.com/48273777/105491791-e5080280-5cdc-11eb-9c22-fc51937d946c.png "Homescreen")
 
 ![auth](https://user-images.githubusercontent.com/48273777/105491861-0cf76600-5cdd-11eb-8f87-9842766ddcf4.jpg "Google OAuth")
