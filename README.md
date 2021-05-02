@@ -64,6 +64,5 @@ Follow the commands below to clone this repository on your system
 <img src="https://user-images.githubusercontent.com/48273777/105491923-25678080-5cdd-11eb-910f-8e6d4476b398.png" width="500" title="New Chat" />
   
   
-
 ### 👇 Live Demo - 
 [Click here](https://whatsapp-644bd.web.app) to go to the Live Demo 🔥 🔥
